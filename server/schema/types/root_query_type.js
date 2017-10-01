@@ -9,9 +9,9 @@ const RootQueryType = new GraphQLObjectType({
       type: UserType,
       resolve(parentValue, args, req) {
         return req.user;
-      }
-    }
-  }
+      },
+    },
+  },
 });
 
 module.exports = RootQueryType;
