@@ -12,7 +12,7 @@ const Mutation = new GraphQLObjectType({
         email: { type: GraphQLString },
         password: { type: GraphQLString }
       },
-      async resolve(parentValue, { email, password }, req) {
+      resolve(parentValue, { email, password }, req) {
         return Auth.signup({ email, password, req });
       }
     },
@@ -28,7 +28,7 @@ const Mutation = new GraphQLObjectType({
         email: { type: GraphQLString },
         password: { type: GraphQLString }
       },
-      async resolve(parentValue, { email, password }, req) {
+      resolve(parentValue, { email, password }, req) {
         return Auth.login({ email, password, req });
       }
     }
