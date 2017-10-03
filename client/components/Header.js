@@ -6,7 +6,9 @@ import { Link } from 'react-router';
 
 class Header extends Component {
   onLogoutClick() {
-    this.props.mutate({});
+    this.props.mutate({
+      refetchQueries: [{ query: currentUserQuery }]
+    });
   }
 
   renderButtons() {
