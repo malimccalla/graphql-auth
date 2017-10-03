@@ -1,24 +1,38 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import currentUserQuery from '../queries/currentUser';
+import { Link } from 'react-router';
 
 class Header extends Component {
   renderButtons() {
     const { loading, currentUser } = this.props.data;
-    console.log('user', this.props.data);
     if (loading) return <div />;
 
     if (currentUser) {
       return <div>Logout</div>;
     } else {
-      return <div>Please sign in</div>;
+      return (
+        <div>
+          <li>
+            <Link to="/signup">Sign Up</Link>
+          </li>
+          <li>
+            <Link to="/login">Log In</Link>
+          </li>
+        </div>
+      );
     }
   }
 
   render() {
     return (
       <nav>
-        <div className="nav-wrapper">{this.renderButtons()}</div>
+        <Link to="/" className="brand-logo left">
+          Home
+        </Link>
+        <div className="nav-wrapper">
+          <ul className="right">{this.renderButtons()}</ul>
+        </div>
       </nav>
     );
   }
