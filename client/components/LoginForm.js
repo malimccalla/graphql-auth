@@ -11,6 +11,11 @@ class LoginForm extends Component {
     this.state = { errors: [] };
   }
 
+  componentWillUpdate(props, nextProps) {
+    console.log('props', props);
+    console.log('nextProps', nextProps);
+  }
+
   onSubmit({ email, password }) {
     this.props
       .mutate({
